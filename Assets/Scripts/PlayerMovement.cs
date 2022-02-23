@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed = 5;
+	public float speed = 30;
 	public Rigidbody body;
-
 	float horizontalInput;
-	public float horizontalMultiplier = 3;
+	public float horizontalMultiplier = 1;
+	public int hitPoints = 5;
 
 	void FixedUpdate()
 	{
@@ -21,5 +20,14 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		horizontalInput = Input.GetAxis("Horizontal");
+	}
+
+	public void hit(int points)
+	{
+		hitPoints -= points;
+		if (hitPoints <= 0)
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
 	}
 }
