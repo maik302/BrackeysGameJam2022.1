@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-	public GameObject groundTile;
-	Vector3 nextSpawnPoint;
+	public GameObject groundTilePrefab;
+	Vector3 nextSpawnPoint = Vector3.zero;
 
 	public void SpawnTile()
 	{
-		GameObject spawned = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
-		nextSpawnPoint = spawned.transform.GetChild(1).transform.position;
+		GameObject spawned = Instantiate(groundTilePrefab, nextSpawnPoint, Quaternion.identity, transform);
+		nextSpawnPoint = spawned.transform.Find("Next Tile").transform.position;
 	}
 
 	void Start()
 	{
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			SpawnTile();
 		}

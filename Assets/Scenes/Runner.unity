@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb0babfc1014a14bf4a586d3c962fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundTile: {fileID: 6330493459007188842, guid: d8efd744798b84bc89011f2737e8956a, type: 3}
+  groundTilePrefab: {fileID: 6330493459007188842, guid: d8efd744798b84bc89011f2737e8956a, type: 3}
 --- !u!4 &614559362
 Transform:
   m_ObjectHideFlags: 0
@@ -337,13 +337,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910511811}
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 5, z: -5}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 40, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &910511815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,12 +368,12 @@ GameObject:
   - component: {fileID: 1594499954}
   - component: {fileID: 1594499953}
   - component: {fileID: 1594499952}
-  - component: {fileID: 1594499950}
   - component: {fileID: 1594499955}
   - component: {fileID: 1594499956}
+  - component: {fileID: 1594499950}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,7 +393,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!23 &1594499952
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594499949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 1, y: 0.8, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,9 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e9d45b20422460a87ee1ded8d4dd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 12
   body: {fileID: 1594499950}
-  horizontalMultiplier: 3
+  horizontalMultiplier: 1
+  hitPoints: 10
 --- !u!65 &1594499956
 BoxCollider:
   m_ObjectHideFlags: 0
