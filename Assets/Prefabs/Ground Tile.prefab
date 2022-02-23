@@ -157,8 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
+  - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
   chanceOfObstacle: 1
-  obstaclePrefab: {fileID: 6947728713789236868, guid: 4b497f3f6233145be90901dea1d9b93e, type: 3}
 --- !u!65 &8021498895118702861
 BoxCollider:
   m_ObjectHideFlags: 0
