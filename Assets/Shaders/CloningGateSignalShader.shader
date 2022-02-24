@@ -1,20 +1,22 @@
-Shader "ProjectShaders/Pickups/PickupShader" {
+Shader "ProjectShaders/CloningGateShaderSignal" {
 
-    Properties {
-        // For a A -> B gradient
-        _ColorA ("Color A", Color) = (1, 0, 0, 1)
-        _ColorB ("Color B", Color) = (1, 0, 0, 1)
-        _ColorStart("Color Start", Range(0, 1)) = 0
-        _ColorEnd("Color End", Range(0, 1)) = 1
+    Properties{
+        _Color ("Color", Color) = (1, 0, 0, 1)
+        _FlashingSpeed ("Flashing speed", Range(0, 20)) = 1
     }
 
     SubShader{
-            Tags { 
-                "RenderType" = "Opaque"
-            }
-            LOD 100
+        Tags { 
+            "RenderType" = "Transparent"
+            "Queue" = "Transparent"
+        }
+        LOD 100
 
         Pass {
+            Cull Off // Turns off backface culling
+            ZWrite Off // Do not write to the depth buffer
+            Blend One One // Aditive Blending
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -23,10 +25,10 @@ Shader "ProjectShaders/Pickups/PickupShader" {
 
             #include "UnityCG.cginc"
 
-            float4 _ColorA;
-            float4 _ColorB;
-            float _ColorStart;
-            float _ColorEnd;
+            #define TAU 6.28318530718
+
+            float4 _Color;
+            float _FlashingSpeed;
 
             struct MeshData {
                 float4 vertex : POSITION;
@@ -53,19 +55,13 @@ Shader "ProjectShaders/Pickups/PickupShader" {
             }
 
             fixed4 frag(Interpolators i) : SV_Target{
-                // Centers the UV coordinates
-                float2 centeredUvs = (i.uv * 2 - 1);
-                // Gets the distance of every pixel to the UVs center point
-                float3 radialDistance = length(centeredUvs);
+                float flashingEffect = cos(_Time.y * _FlashingSpeed);
+                flashingEffect = saturate(flashingEffect);
 
-                float t = InverseLerp(_ColorStart, _ColorEnd, radialDistance);
-                t = saturate(t);
-
-                float4 gradientColor = lerp(_ColorA, _ColorB, t);
-
+                float4 col = i.uv.xxxx;
                 // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, gradientColor);
-                return gradientColor;
+                UNITY_APPLY_FOG(i.fogCoord, col);
+                return flashingEffect * _Color;
             }
             ENDCG
         }
