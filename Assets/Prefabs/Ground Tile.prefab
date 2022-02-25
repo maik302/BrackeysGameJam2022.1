@@ -157,10 +157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tracks: 5
   obstaclePrefabs:
   - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
   - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
-  chanceOfObstacle: 1
+  maxObstacles: 2
+  chanceOfObstacle: 0.7
+  coinPrefabs:
+  - {fileID: 7166176494991932121, guid: 543f2c519c8a5034b8a7402e62872889, type: 3}
+  chanceOfCoin: 0.5
 --- !u!65 &8021498895118702861
 BoxCollider:
   m_ObjectHideFlags: 0

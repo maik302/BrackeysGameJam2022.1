@@ -15,7 +15,7 @@ public class Obstacle : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			playerMovement.hit(1);
+			playerMovement.Hit(1);
 		}
 	}
 }
