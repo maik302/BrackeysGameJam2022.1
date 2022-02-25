@@ -437,6 +437,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     audioSource: {fileID: 0}
+  - name: CoinSound
+    audioClip: {fileID: 8300000, guid: fe79a296241334099b9622427a36a916, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: CloneSound
+    audioClip: {fileID: 8300000, guid: 54452d94079e6064abf98508e8ceaef7, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
 --- !u!4 &1015749084
 Transform:
   m_ObjectHideFlags: 0

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupsRotator : MonoBehaviour
+public class PickupsManager : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed = 1f;
     [SerializeField] private float _upwardsWhenEnding = 10f;
+    [SerializeField] private int _pointsValue;
+    
     private float _upwardsSpeed = 0;
 
     void Update()
@@ -16,14 +18,18 @@ public class PickupsRotator : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // TODO: Check if its player
-        GameManager.inst.AddPoints(1);
+        if (other.gameObject.CompareTag("Player")) {
+            GameManager.inst.AddPoints(_pointsValue);
 
-        // Destruction animation
-        _rotationSpeed *= 100;
-        _upwardsSpeed = _upwardsWhenEnding;
+            // Destruction animation
+            _rotationSpeed *= 100;
+            _upwardsSpeed = _upwardsWhenEnding;
 
-        Destroy(gameObject, 0.5f);
+            // Play pickup sound
+            AudioManager.Instance.Play("CoinSound");
+
+            Destroy(gameObject, 0.5f);
+        }
     }
 
 }

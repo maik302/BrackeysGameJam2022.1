@@ -24,4 +24,12 @@ public class ClonerManager : MonoBehaviour
     public bool CanClone() {
         return _canClone;
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Player")) {
+            // TODO: Clone the player car
+
+            AudioManager.Instance.Play("CloneSound");
+        }
+    }
 }
