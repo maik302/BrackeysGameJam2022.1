@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour
         inst = this;
     }
 
+    private void Start() {
+        StartPlayingBackgroungMusic();
+    }
+
+    private void StartPlayingBackgroungMusic() {
+        AudioManager.Instance.Play("BackgroundMusic");
+    }
+
     public void AddPoints(int points) {
         score += points;
     }
