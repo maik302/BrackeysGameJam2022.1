@@ -34,12 +34,7 @@ public class AudioManager : MonoBehaviour {
 
     public void Play(string name) {
         Sound sound = Array.Find(_sounds, sound => sound.name == name);
-        if (sound != null) {
-            sound.audioSource.Play();
-            Debug.Log("I played a sound!");
-        } else {
-            Debug.Log("A Sound is null :(");
-        }
+        sound?.audioSource.Play();
     }
 
     public void Stop(string name) {

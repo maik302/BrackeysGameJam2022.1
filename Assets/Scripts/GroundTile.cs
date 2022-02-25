@@ -8,23 +8,24 @@ public class GroundTile : MonoBehaviour
 
 	// Obstacles
 	[Header("Obstacles setup")]
-	[SerializeField] private List<GameObject> obstaclePrefabs;
-	[SerializeField] private int maxObstacles;
-	[SerializeField] private double chanceOfObstacle = 0.5;
+	[SerializeField] private SpawnableObjects obstacles;
 
 	// Coins
 	[Header("Coins setup")]
-	[SerializeField] private List<GameObject> coinPrefabs;
-	[SerializeField] private double chanceOfCoin = 0.5;
+	[SerializeField] private SpawnableObjects coins;
 
 	// Cloning devices
 	[Header("Cloning Arc setup")]
-	[SerializeField] private GameObject cloningDevicePrefab;
-	[SerializeField] private double chanceOfCloningArc;
+	[SerializeField] SpawnableObjects cloningArc;
 
 	GroundSpawner groundSpawner;
+	int maxObstacles;
 
-	void Start()
+    void Awake() {
+		maxObstacles = obstacles.GetMaxSpawnableObjects();
+    }
+
+    void Start()
 	{
 		groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
 
@@ -33,7 +34,7 @@ public class GroundTile : MonoBehaviour
 			maxObstacles = tracks - 1;
 		}
 
-		if (Random.value >= chanceOfCloningArc) {
+		if (Random.value >= cloningArc.GetChanceOfSpawn()) {
 			SpawnRowOfCloners();
 		} else {
 			SpawnSingleObjectPerTrack();
@@ -43,12 +44,12 @@ public class GroundTile : MonoBehaviour
 	void SpawnSingleObjectPerTrack() {
 		int spawnedObstacles = 0;
 		for (int track = 0; track < tracks; track++) {
-			if (Random.value >= chanceOfObstacle && spawnedObstacles <= maxObstacles) {
+			if (Random.value >= obstacles.GetChanceOfSpawn() && spawnedObstacles < maxObstacles) {
 				spawnedObstacles++;
-				SpawnGameObject(getRandomPrefab(obstaclePrefabs), track);
-			} else if (Random.value >= chanceOfCoin) {
+				SpawnGameObject(obstacles.GetObjectToSpawn(), track);
+			} else if (Random.value >= coins.GetChanceOfSpawn()) {
 				// Put coins where there are no obstacles
-				SpawnGameObject(getRandomPrefab(coinPrefabs), track);
+				SpawnGameObject(coins.GetObjectToSpawn(), track);
 			}
 		}
 	}
@@ -57,7 +58,7 @@ public class GroundTile : MonoBehaviour
 		var activeClonerTrack = Random.Range(0, tracks);
 
 		for (int track = 0; track < tracks; track++) {
-			GameObject cloner = SpawnGameObject(cloningDevicePrefab, track);
+			GameObject cloner = SpawnGameObject(cloningArc.GetObjectToSpawn(), track);
 			cloner.GetComponent<ClonerManager>()?.SetCloningStatus(track == activeClonerTrack);
         }
     }
@@ -93,9 +94,5 @@ public class GroundTile : MonoBehaviour
 		gameObject.transform.localScale = objectScale;
 
 		return gameObject;
-	}
-
-	private GameObject getRandomPrefab(List<GameObject> prefabs) {
-		return prefabs[Random.Range(0, prefabs.Count)];
 	}
 }

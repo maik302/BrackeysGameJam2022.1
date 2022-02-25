@@ -120,8 +120,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2528320861588956070}
-  - component: {fileID: 1527993366983099566}
   - component: {fileID: 8021498895118702861}
+  - component: {fileID: 1527993366983099566}
   m_Layer: 0
   m_Name: Ground Tile
   m_TagString: Untagged
@@ -145,29 +145,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1527993366983099566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330493459007188842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tracks: 5
-  obstaclePrefabs:
-  - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
-  - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
-  maxObstacles: 2
-  chanceOfObstacle: 0.7
-  coinPrefabs:
-  - {fileID: 7166176494991932121, guid: 543f2c519c8a5034b8a7402e62872889, type: 3}
-  chanceOfCoin: 0.5
-  cloningDevicePrefab: {fileID: 6013620785457811994, guid: 8fd1d66522debb143b3db01120afd0fe, type: 3}
-  chanceOfCloningArc: 0.8
 --- !u!65 &8021498895118702861
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -181,3 +158,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.01, z: 10}
   m_Center: {x: 0, y: 0, z: 5}
+--- !u!114 &1527993366983099566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330493459007188842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracks: 5
+  obstacles:
+    _objectsToSpawn:
+    - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
+    - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
+    _chanceOfSpawn: 0.6
+    _maxSpawnableObjects: 4
+  coins:
+    _objectsToSpawn:
+    - {fileID: 7166176494991932121, guid: 543f2c519c8a5034b8a7402e62872889, type: 3}
+    _chanceOfSpawn: 0.2
+    _maxSpawnableObjects: 1
+  cloningArc:
+    _objectsToSpawn:
+    - {fileID: 6013620785457811994, guid: 8fd1d66522debb143b3db01120afd0fe, type: 3}
+    _chanceOfSpawn: 0.9
+    _maxSpawnableObjects: 1
