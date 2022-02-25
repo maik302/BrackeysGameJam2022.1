@@ -89,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 79ff137f8d31d4a438ed35dba84d7935, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,6 +166,8 @@ MonoBehaviour:
   coinPrefabs:
   - {fileID: 7166176494991932121, guid: 543f2c519c8a5034b8a7402e62872889, type: 3}
   chanceOfCoin: 0.5
+  cloningDevicePrefab: {fileID: 6013620785457811994, guid: 8fd1d66522debb143b3db01120afd0fe, type: 3}
+  chanceOfCloningArc: 0.8
 --- !u!65 &8021498895118702861
 BoxCollider:
   m_ObjectHideFlags: 0

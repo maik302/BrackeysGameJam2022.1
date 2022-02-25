@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class GroundTile : MonoBehaviour
 {
-	[SerializeField] private double tracks = 5;
+	[SerializeField] private int tracks = 5;
 
+	// Obstacles
+	[Header("Obstacles setup")]
 	[SerializeField] private List<GameObject> obstaclePrefabs;
-	[SerializeField] private double maxObstacles;
+	[SerializeField] private int maxObstacles;
 	[SerializeField] private double chanceOfObstacle = 0.5;
+
+	// Coins
+	[Header("Coins setup")]
 	[SerializeField] private List<GameObject> coinPrefabs;
 	[SerializeField] private double chanceOfCoin = 0.5;
+
+	// Cloning devices
+	[Header("Cloning Arc setup")]
+	[SerializeField] private GameObject cloningDevicePrefab;
+	[SerializeField] private double chanceOfCloningArc;
 
 	GroundSpawner groundSpawner;
 
@@ -22,32 +32,46 @@ public class GroundTile : MonoBehaviour
 			Debug.Log("maxObstacles must be smaller than tracks, using maximum value");
 			maxObstacles = tracks - 1;
 		}
+
+		if (Random.value >= chanceOfCloningArc) {
+			SpawnRowOfCloners();
+		} else {
+			SpawnSingleObjectPerTrack();
+		}
+	}
+
+	void SpawnSingleObjectPerTrack() {
 		int spawnedObstacles = 0;
-		for (int track = 0; track < tracks; track++)
-		{
-			if (Random.value >= chanceOfObstacle && spawnedObstacles <= maxObstacles)
-			{
+		for (int track = 0; track < tracks; track++) {
+			if (Random.value >= chanceOfObstacle && spawnedObstacles <= maxObstacles) {
 				spawnedObstacles++;
 				SpawnGameObject(getRandomPrefab(obstaclePrefabs), track);
-			}
-			else if (Random.value >= chanceOfCoin)
-			{
+			} else if (Random.value >= chanceOfCoin) {
 				// Put coins where there are no obstacles
 				SpawnGameObject(getRandomPrefab(coinPrefabs), track);
 			}
 		}
 	}
 
+	void SpawnRowOfCloners() {
+		var activeClonerTrack = Random.Range(0, tracks);
+
+		for (int track = 0; track < tracks; track++) {
+			GameObject cloner = SpawnGameObject(cloningDevicePrefab, track);
+			cloner.GetComponent<ClonerManager>()?.SetCloningStatus(track == activeClonerTrack);
+        }
+    }
+
 	void OnCollisionExit(Collision other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.CompareTag("Player"))
 		{
 			groundSpawner.SpawnTile();
 			Destroy(gameObject, 2);
 		}
 	}
 
-	void SpawnGameObject(GameObject objectPrefab, int track)
+	GameObject SpawnGameObject(GameObject objectPrefab, int track)
 	{
 		// Planes have size 10
 		float trackSize = 10F / (float)tracks;
@@ -67,6 +91,8 @@ public class GroundTile : MonoBehaviour
 		objectScale.y /= transform.localScale.y;
 		objectScale.z /= transform.localScale.z;
 		gameObject.transform.localScale = objectScale;
+
+		return gameObject;
 	}
 
 	private GameObject getRandomPrefab(List<GameObject> prefabs) {
