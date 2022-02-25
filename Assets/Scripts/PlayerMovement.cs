@@ -20,14 +20,29 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		horizontalInput = Input.GetAxis("Horizontal");
+
+		if (transform.position.y < -5)
+		{
+			Die();
+		}
 	}
 
-	public void hit(int points)
+	public void Hit(int points)
 	{
 		hitPoints -= points;
 		if (hitPoints <= 0)
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			Die();
 		}
+	}
+
+	private void Die()
+	{
+		Invoke("Restart", 2);
+	}
+
+	private void Restart()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
