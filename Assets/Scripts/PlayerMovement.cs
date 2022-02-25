@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float speed = 30;
 	[SerializeField] float horizontalMultiplier = 1;
 
+	[SerializeField] private GameObject bulletPrefab;
+
 	void FixedUpdate()
 	{
 		float vertialMultiplier = moveVal.y < 0 ? 0 : moveVal.y;
@@ -31,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
 	void OnMove(InputValue value)
 	{
 		moveVal = value.Get<Vector2>().normalized;
+	}
+
+	void OnFire(InputValue value)
+	{
+		Instantiate(bulletPrefab, transform, false);
 	}
 
 	public void Hit(int points)
