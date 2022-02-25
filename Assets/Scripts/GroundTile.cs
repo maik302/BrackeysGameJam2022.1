@@ -6,15 +6,13 @@ public class GroundTile : MonoBehaviour
 {
 	[SerializeField] private List<GameObject> obstaclePrefabs;
 	[SerializeField] private double chanceOfObstacle = 0.5;
+	[SerializeField] private double tracks = 5;
 
 	GroundSpawner groundSpawner;
-	int tracks;
 
 	void Start()
 	{
 		groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
-
-		tracks = (int)transform.localScale.x;
 
 		for (int i = 0; i < tracks; i++)
 		{

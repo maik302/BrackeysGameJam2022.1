@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
   - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
   chanceOfObstacle: 1
+  tracks: 5
 --- !u!65 &8021498895118702861
 BoxCollider:
   m_ObjectHideFlags: 0
