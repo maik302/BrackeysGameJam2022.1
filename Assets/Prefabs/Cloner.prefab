@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6013620785457811995}
   - component: {fileID: 285116744453262684}
-  - component: {fileID: 6013620785457811996}
+  - component: {fileID: 8250682595510024347}
   m_Layer: 0
   m_Name: Cloner
   m_TagString: Cloner
@@ -46,9 +46,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 7, z: 0.1}
+  m_Size: {x: 5, y: 7, z: 15}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!114 &6013620785457811996
+--- !u!114 &8250682595510024347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,11 +57,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6013620785457811994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4567b75b6b85dad4cb14bdbffdb92820, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f3692f156c58a94cbeebf2fc28c0a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canCloneColor: {r: 0, g: 0.58431375, b: 0.8980392, a: 0}
-  _canNotCloneColor: {r: 0, g: 0.32941177, b: 0.8980392, a: 0}
+  _activeClonerColor: {r: 0.109803915, g: 0.4285174, b: 0.85882354, a: 1}
+  _inactiveClonerColor: {r: 0.25882357, g: 0.8830022, b: 0.93333334, a: 1}
 --- !u!1 &6013620785740236248
 GameObject:
   m_ObjectHideFlags: 0

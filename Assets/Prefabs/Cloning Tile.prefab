@@ -121,9 +121,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2528320861588956070}
   - component: {fileID: 8021498895118702861}
-  - component: {fileID: 1527993366983099566}
+  - component: {fileID: 8344124269944158761}
+  - component: {fileID: 4649376608701995449}
   m_Layer: 0
-  m_Name: Ground Tile
+  m_Name: Cloning Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +159,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.01, z: 10}
   m_Center: {x: 0, y: 0, z: 5}
---- !u!114 &1527993366983099566
+--- !u!65 &8344124269944158761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330493459007188842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 5, z: 1}
+  m_Center: {x: 0, y: 2.5, z: 5}
+--- !u!114 &4649376608701995449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,23 +181,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6330493459007188842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b69f8e8168e6f342a01108d87899ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tracks: 5
-  obstacles:
-    _objectsToSpawn:
-    - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
-    - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
-    _chanceOfSpawn: 0.6
-    _maxSpawnableObjects: 4
-  coins:
-    _objectsToSpawn:
-    - {fileID: 7166176494991932121, guid: 543f2c519c8a5034b8a7402e62872889, type: 3}
-    _chanceOfSpawn: 0.2
-    _maxSpawnableObjects: 1
   cloningArc:
     _objectsToSpawn:
     - {fileID: 6013620785457811994, guid: 8fd1d66522debb143b3db01120afd0fe, type: 3}
-    _chanceOfSpawn: 0.8
-    _maxSpawnableObjects: 1
+    _chanceOfSpawn: 0
+    _maxSpawnableObjects: 0

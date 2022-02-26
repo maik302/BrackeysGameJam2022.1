@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundSpawner : MonoBehaviour
-{
-	public GameObject groundTilePrefab;
+public class GroundSpawner : MonoBehaviour {
+	public static GroundSpawner Instance;
+
+	[SerializeField] private GameObject _groundTilePrefab;
 	Vector3 nextSpawnPoint = Vector3.zero;
 
-	public void SpawnTile()
+    void Awake() {
+		if (Instance == null) {
+			Instance = this;
+        }
+    }
+
+    public void SpawnTile()
 	{
-		GameObject spawned = Instantiate(groundTilePrefab, nextSpawnPoint, Quaternion.identity, transform);
+		GameObject spawned = Instantiate(_groundTilePrefab, nextSpawnPoint, Quaternion.identity, transform);
 		nextSpawnPoint = spawned.transform.Find("Next Tile").transform.position;
 	}
 
