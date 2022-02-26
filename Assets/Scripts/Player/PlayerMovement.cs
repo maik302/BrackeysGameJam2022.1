@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] float horizontalMultiplier = 1;
 	[SerializeField] float _rayMagnitude;
 
-	[SerializeField] private GameObject bulletPrefab;
-
     void FixedUpdate() {
 		float vertialMultiplier = moveVal.y < 0 ? 0 : moveVal.y;
 		Vector3 forwardMove = transform.forward * (1 + vertialMultiplier*2) * speed * Time.fixedDeltaTime;
@@ -44,14 +42,14 @@ public class PlayerMovement : MonoBehaviour {
 	bool CanKeepMovingInDirection(Vector3 direction) {
 		// Casts a ray from this transform origin to know if the object is near a *border wall*
 		Ray ray = new Ray(transform.position, direction);
+		var canKeepMovingInDirection = !Physics.Raycast(ray, _rayMagnitude);
+
+		//Reports to every clone if they can keep moving horizontally
+		ClonesManager.Instance.SetClonesHorizontalMovementState(canKeepMovingInDirection);
 		return !Physics.Raycast(ray, _rayMagnitude);
     }
 
 	void OnMove(InputValue value) {
 		moveVal = value.Get<Vector2>().normalized;
-	}
-
-	void OnFire(InputValue value) {
-		Instantiate(bulletPrefab, transform, false);
 	}
 }
