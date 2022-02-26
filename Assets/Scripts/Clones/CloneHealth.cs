@@ -9,6 +9,7 @@ public class CloneHealth : MonoBehaviour {
         _healthPoints -= hitDamage;
 
         if (_healthPoints <= 0) {
+            ClonesManager.Instance.RemoveAClone();
             Destroy(gameObject);
         }
     }

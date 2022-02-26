@@ -261,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1594499954}
   _clonePrefab: {fileID: 5044755007332036520, guid: 5630f1d3411d8ac469d52163f929924a, type: 3}
+  _maxClones: 2
 --- !u!1 &614559360
 GameObject:
   m_ObjectHideFlags: 0
