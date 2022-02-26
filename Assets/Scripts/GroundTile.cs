@@ -23,17 +23,17 @@ public class GroundTile : MonoBehaviour
 
     void Awake() {
 		maxObstacles = obstacles.GetMaxSpawnableObjects();
-    }
-
-    void Start()
-	{
-		groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
-
+		
 		if (tracks - 1 < maxObstacles) {
 			Debug.Log("maxObstacles must be smaller than tracks, using maximum value");
 			maxObstacles = tracks - 1;
 		}
+	}
 
+    void Start()
+	{
+		groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
+		
 		if (Random.value >= cloningArc.GetChanceOfSpawn()) {
 			SpawnRowOfCloners();
 		} else {
@@ -56,10 +56,12 @@ public class GroundTile : MonoBehaviour
 
 	void SpawnRowOfCloners() {
 		var activeClonerTrack = Random.Range(0, tracks);
+		var activeClonerSpawnPosition = GetSpawnPosition(activeClonerTrack, tracks);
 
 		for (int track = 0; track < tracks; track++) {
 			GameObject cloner = SpawnGameObject(cloningArc.GetObjectToSpawn(), track);
 			cloner.GetComponent<ClonerManager>()?.SetCloningStatus(track == activeClonerTrack);
+			cloner.GetComponent<ClonerManager>()?.SetActiveClonerPosition(activeClonerSpawnPosition, gameObject.transform);
         }
     }
 
@@ -74,17 +76,10 @@ public class GroundTile : MonoBehaviour
 
 	GameObject SpawnGameObject(GameObject objectPrefab, int track)
 	{
-		// Planes have size 10
-		float trackSize = 10F / (float)tracks;
-		// Choose random track
-
-		// Then, -5 is the border of a plane, and center the object in the "track"
-		Vector3 spawnPosition = new Vector3(-5F + trackSize / 2F + track * trackSize, 0F, 5F);
-
 		// Spawn the object
 		// Make this the parent of the object, so it gets destroyed with it
 		GameObject gameObject = Instantiate(objectPrefab, transform, false);
-		gameObject.transform.localPosition = spawnPosition;
+		gameObject.transform.localPosition = GetSpawnPosition(track, tracks);
 
 		// HACK: Fix scale of object to make it 1x1x1 again
 		Vector3 objectScale = gameObject.transform.localScale;
@@ -94,5 +89,14 @@ public class GroundTile : MonoBehaviour
 		gameObject.transform.localScale = objectScale;
 
 		return gameObject;
+	}
+
+	Vector3 GetSpawnPosition(int track, int numberOfTracks) {
+		// Planes have size 10
+		float trackSize = 10F / (float) numberOfTracks;
+		// Choose random track
+
+		// Then, -5 is the border of a plane, and center the object in the "track"
+		return new Vector3(-5F + trackSize / 2F + track * trackSize, 0F, 5F);
 	}
 }

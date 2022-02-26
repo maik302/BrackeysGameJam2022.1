@@ -8,6 +8,7 @@ public class ClonerManager : MonoBehaviour
     [SerializeField] private Color _canNotCloneColor = new Color(0, 58, 229);
 
     private bool _canClone;
+    private Vector3 _activeClonerPosition;
 
     public void SetCloningStatus(bool canClone) {
         var cloningGate = transform.Find("CloningGate");
@@ -25,10 +26,15 @@ public class ClonerManager : MonoBehaviour
         return _canClone;
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Player")) {
-            // TODO: Clone the player car
+    // Sets the active cloner position relative to world space
+    public void SetActiveClonerPosition(Vector3 activeClonerPosition, Transform parentTransform) {
+        _activeClonerPosition = parentTransform.TransformPoint(activeClonerPosition);
+    }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Player") && _activeClonerPosition != null) {
+            // TODO: Clone the player car
+            ClonesManager.Instance.CreateClone(_activeClonerPosition);
             AudioManager.Instance.Play("CloneSound");
         }
     }
