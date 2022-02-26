@@ -6,7 +6,7 @@ public class PickupsManager : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed = 1f;
     [SerializeField] private float _upwardsWhenEnding = 10f;
-    [SerializeField] private int _pointsValue;
+    [SerializeField] private int _pointsValue = 1;
     
     private float _upwardsSpeed = 0;
 

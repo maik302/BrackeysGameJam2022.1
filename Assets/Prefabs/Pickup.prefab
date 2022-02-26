@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 100
+  _upwardsWhenEnding: 10
+  _pointsValue: 1
 --- !u!1001 &7166176495057401784
 PrefabInstance:
   m_ObjectHideFlags: 0
