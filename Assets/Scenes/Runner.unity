@@ -214,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &462953450
 GameObject:
@@ -245,7 +245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &462953452
 MonoBehaviour:
@@ -291,7 +291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb0babfc1014a14bf4a586d3c962fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundTilePrefab: {fileID: 6330493459007188842, guid: 310383f3590554a4380d4ed69eeb6dfe, type: 3}
+  _groundTilePrefab: {fileID: 6330493459007188842, guid: d8efd744798b84bc89011f2737e8956a, type: 3}
+  _minGroundTiles: 1
+  _maxGroundTiles: 3
+  _cloningTilePrefab: {fileID: 6330493459007188842, guid: 310383f3590554a4380d4ed69eeb6dfe, type: 3}
 --- !u!4 &614559362
 Transform:
   m_ObjectHideFlags: 0
@@ -348,7 +351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910511811
 GameObject:
@@ -432,7 +435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &910511815
 MonoBehaviour:
@@ -507,7 +510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594499949
 GameObject:
@@ -639,7 +642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.8, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1594499955
 MonoBehaviour:
