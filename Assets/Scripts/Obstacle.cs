@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
-{
-	PlayerMovement playerMovement;
+public class Obstacle : MonoBehaviour {
 
-	void Start()
-	{
-		playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
-	}
+	[SerializeField] private int _hitDamage;
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.tag == "Player")
-		{
-			playerMovement.Hit(1);
-		}
+	private void OnTriggerEnter(Collider other) {
+		var collisionObject = other.gameObject;
+		if (collisionObject.CompareTag("Player")) {
+			collisionObject.GetComponent<PlayerHealth>()?.Hit(_hitDamage);
+        } else if (collisionObject.CompareTag("PlayerClone")) {
+			collisionObject.GetComponent<CloneHealth>()?.Hit(_hitDamage);
+        }
 	}
 }

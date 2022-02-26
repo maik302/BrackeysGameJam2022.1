@@ -108,9 +108,10 @@ GameObject:
   - component: {fileID: 5044755007332036518}
   - component: {fileID: 5044755007332036517}
   - component: {fileID: 5044755007332036516}
+  - component: {fileID: 1948213884834701086}
   m_Layer: 0
   m_Name: Clone
-  m_TagString: Untagged
+  m_TagString: PlayerClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,8 +203,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 5044755007332036518}
-  hitPoints: 10
   moveVal: {x: 0, y: 0, z: 0}
   speed: 12
   horizontalMultiplier: 1
   bulletPrefab: {fileID: 1153982264363845676, guid: 40a00256dba9ce04e8e31123c3d172cd, type: 3}
+--- !u!114 &1948213884834701086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044755007332036520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63dd69c9bac2b2a4bb454b80cfe416b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthPoints: 1

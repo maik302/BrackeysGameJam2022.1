@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField] Rigidbody body;
-	[SerializeField] int hitPoints = 5;
 	
 	[SerializeField] Vector3 moveVal;
 	[SerializeField] float speed = 30;
@@ -24,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (transform.position.y < -5)
+		if (transform.position.y < -5  && CompareTag("Player"))
 		{
 			Die();
 		}
@@ -38,15 +37,6 @@ public class PlayerMovement : MonoBehaviour
 	void OnFire(InputValue value)
 	{
 		Instantiate(bulletPrefab, transform, false);
-	}
-
-	public void Hit(int points)
-	{
-		hitPoints -= points;
-		if (hitPoints <= 0)
-		{
-			Die();
-		}
 	}
 
 	private void Die()

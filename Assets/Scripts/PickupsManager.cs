@@ -18,7 +18,7 @@ public class PickupsManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) {
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("PlayerClone")) {
             GameManager.inst.AddPoints(_pointsValue);
 
             // Destruction animation
