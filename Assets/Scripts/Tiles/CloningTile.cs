@@ -26,7 +26,7 @@ public class CloningTile : BaseTile {
         }
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
             RequestForCloneCreation();
         }

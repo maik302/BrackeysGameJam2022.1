@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour {
-	public static GroundSpawner Instance;
+    public static GroundSpawner Instance;
 
 	[Header("Ground tiles")]
 	[SerializeField] private GameObject _groundTilePrefab;
@@ -19,8 +19,8 @@ public class GroundSpawner : MonoBehaviour {
 	int _spawnedGroundTiles;
 
     void Awake() {
-		if (Instance == null) {
-			Instance = this;
+        if (Instance == null) {
+            Instance = this;
         }
 
 		ResetGroundTilesToSpawn();

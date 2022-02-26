@@ -12,26 +12,42 @@ public class ClonesManager : MonoBehaviour {
     [SerializeField] private GameObject _clonePrefab;
     [SerializeField] private int _maxClones;
 
-    private int _createdClones;
+    private List<GameObject> clones;
 
     void Awake() {
         if (Instance == null) {
             Instance = this;
         }
 
-        _createdClones = 0;
+        clones = new List<GameObject>(_maxClones);
     }
 
     public void CreateClone(Vector3 spawnPosition) {
-        if (_createdClones < _maxClones) {
+        if (clones.Count < _maxClones) {
             var clone = Instantiate(_clonePrefab);
             clone.transform.position = new Vector3(spawnPosition.x, _playerTransform.position.y, _playerTransform.position.z);
-            
-            _createdClones++;
+
+            clones.Add(clone);
+        }
+    }
+
+    public bool IsEmpty() {
+        return clones.Count == 0;
+    }
+
+    public void RemoveAllClones() {
+        while (! IsEmpty()) {
+            RemoveAClone();
         }
     }
 
     public void RemoveAClone() {
-        _createdClones--;
+        GameObject clone = clones[0];
+        RemoveAClone(clone);
+    }
+
+    public void RemoveAClone(GameObject clone) {
+        clones.Remove(clone);
+        Destroy(clone);
     }
 }

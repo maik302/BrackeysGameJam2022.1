@@ -8,13 +8,13 @@ public abstract class BaseHealth : MonoBehaviour
 
     public void Hit(int hitDamage)
     {
-        _healthPoints -= hitDamage;
-        
+        int leftDamage = BeforeHit(hitDamage);
+
+        _healthPoints -= leftDamage;
         if (_healthPoints <= 0)
         {
             Die();
         }
-
     }
 
     // Update is called once per frame
@@ -26,5 +26,6 @@ public abstract class BaseHealth : MonoBehaviour
         }
     }
 
+    public abstract int BeforeHit(int hitDamage);
     public abstract void Die();
 }
