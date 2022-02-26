@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1594499954}
   _clonePrefab: {fileID: 5044755007332036520, guid: 5630f1d3411d8ac469d52163f929924a, type: 3}
-  _maxClones: 2
+  _maxClones: 4
 --- !u!1 &614559360
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb0babfc1014a14bf4a586d3c962fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundTilePrefab: {fileID: 6330493459007188842, guid: d8efd744798b84bc89011f2737e8956a, type: 3}
+  _groundTilePrefab: {fileID: 6330493459007188842, guid: 310383f3590554a4380d4ed69eeb6dfe, type: 3}
 --- !u!4 &614559362
 Transform:
   m_ObjectHideFlags: 0
