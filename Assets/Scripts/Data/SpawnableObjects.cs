@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnableObjects {
 
     [SerializeField] private List<GameObject> _objectsToSpawn;
-    [SerializeField] private double _chanceOfSpawn;
+    [SerializeField] [Range(0.0F, 1.0F)] private double _chanceOfSpawn;
     [SerializeField] private int _maxSpawnableObjects;
 
     public GameObject GetObjectToSpawn() {
