@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour {
-    [SerializeField] private int _healthPoints = 100;
+public class PlayerHealth : BaseHealth
+{
+    public override void Die()
+    {
+        Invoke("Restart", 2);
+    }
 
-    public void Hit(int hitDamage) {
-        _healthPoints -= hitDamage;
-        // TODO: Manage when hitpoints reach to 0
+    private void Restart()
+    {
+        GameManager.Instance.Restart();
     }
 }

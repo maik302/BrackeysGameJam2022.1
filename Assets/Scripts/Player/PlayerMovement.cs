@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,15 +19,6 @@ public class PlayerMovement : MonoBehaviour
 		body.MovePosition(body.position + forwardMove + horizontalMove);
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (transform.position.y < -5  && CompareTag("Player"))
-		{
-			Die();
-		}
-	}
-	
 	void OnMove(InputValue value)
 	{
 		moveVal = value.Get<Vector2>().normalized;
@@ -37,15 +27,5 @@ public class PlayerMovement : MonoBehaviour
 	void OnFire(InputValue value)
 	{
 		Instantiate(bulletPrefab, transform, false);
-	}
-
-	private void Die()
-	{
-		Invoke("Restart", 2);
-	}
-
-	private void Restart()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
