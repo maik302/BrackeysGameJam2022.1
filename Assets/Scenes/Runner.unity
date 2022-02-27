@@ -632,7 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialTiles: 10
   _groundTilePrefab: {fileID: 6330493459007188842, guid: d8efd744798b84bc89011f2737e8956a, type: 3}
-  _minGroundTiles: 5
+  _minGroundTiles: 3
   _maxGroundTiles: 10
   _cloningTilePrefab: {fileID: 6330493459007188842, guid: 310383f3590554a4380d4ed69eeb6dfe, type: 3}
 --- !u!4 &614559362

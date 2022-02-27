@@ -29,12 +29,12 @@ public class GroundSpawner : MonoBehaviour {
     }
 
 	void ResetGroundTilesToSpawn() {
-		_nextNumberOfGroundTilesToSpawn = Random.Range(_minGroundTiles, _maxGroundTiles);
+		_nextNumberOfGroundTilesToSpawn = Random.Range(_minGroundTiles, _maxGroundTiles + 1);
 		_spawnedGroundTiles = 0;
 	}
 
     public void SpawnTile() {
-		if (_spawnedGroundTiles <= _nextNumberOfGroundTilesToSpawn) {
+		if (_spawnedGroundTiles < _nextNumberOfGroundTilesToSpawn) {
 			SpawnGroundTile();
         } else {
 			ResetGroundTilesToSpawn();

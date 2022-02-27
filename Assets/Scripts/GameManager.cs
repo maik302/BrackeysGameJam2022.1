@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private int bestScore = 0;
-
     public enum GameState {
         PLAYING,
         PAUSE,
