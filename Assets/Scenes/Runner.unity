@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveVal: {x: 0, y: 0, z: 0}
-  speed: 12
+  speed: 15
   horizontalMultiplier: 1
   body: {fileID: 1998080512}
   _rayMagnitude: 2
@@ -2469,7 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98520381daf3394fbc73710dffe7a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 100
+  _healthPoints: 1
 --- !u!1 &2081560450
 GameObject:
   m_ObjectHideFlags: 0

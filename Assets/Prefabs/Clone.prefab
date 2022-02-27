@@ -107,10 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2046ff0d61945d94a88de03c67c59c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 5044755007332036518}
   moveVal: {x: 0, y: 0, z: 0}
-  speed: 12
+  speed: 15
   horizontalMultiplier: 1
+  body: {fileID: 5044755007332036518}
 --- !u!114 &1948213884834701086
 MonoBehaviour:
   m_ObjectHideFlags: 0

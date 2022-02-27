@@ -15,11 +15,11 @@ public class PlayerHealth : BaseHealth
 
     public override void Die()
     {
-        Invoke("Restart", 2);
+        Invoke("GameOver", 0.5f);
     }
 
-    private void Restart()
+    private void GameOver()
     {
-        GameManager.Instance.Restart();
+        GameManager.Instance.SetGameState(GameManager.GameState.GAME_OVER);
     }
 }
