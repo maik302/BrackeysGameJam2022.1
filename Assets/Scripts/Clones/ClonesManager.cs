@@ -35,6 +35,10 @@ public class ClonesManager : MonoBehaviour {
         return clones.Count == 0;
     }
 
+    public int Count() {
+        return clones.Count;
+    }
+
     public void RemoveAllClones() {
         while (! IsEmpty()) {
             RemoveAClone();
