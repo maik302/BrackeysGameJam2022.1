@@ -52,4 +52,8 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameState gameState) {
         _currentGameState = gameState;
     }
+
+    public int GetBestScore() {
+        return bestScore;
+    }
 }

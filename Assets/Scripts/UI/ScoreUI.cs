@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class ScoreUI : MonoBehaviour
 {
-
+    [Header("Playing state UI")]
     [SerializeField] private Text scoreText;
     [SerializeField] private Text pointsText;
     [SerializeField] private Text speedMultiplierText;
+
+    [Header("Game Over state UI")]
+    [SerializeField] private Text finalScoreText;
+    [SerializeField] private Text bestScoreText;
 
     private float lastPoints = 0;
     private float addedPoints = 0;
@@ -18,6 +22,8 @@ public class ScoreUI : MonoBehaviour
     void Update()
     {
         scoreText.text = ScoreManager.Instance.GetScore().ToString();
+        finalScoreText.text = ScoreManager.Instance.GetScore().ToString();
+        bestScoreText.text = GameManager.Instance.GetBestScore().ToString();
 
         float newPoints = ScoreManager.Instance.GetPoints();
         if (newPoints - lastPoints > 0) {
