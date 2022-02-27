@@ -9,6 +9,10 @@ public abstract class BaseMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameManager.Instance.GetCurrentGameState() != GameManager.GameState.PLAYING) {
+            return;
+        }
+
         float verticalMultiplier = 1 + 2*Math.Max(0, moveVal.y);
         int speedMultiplier = 1 + ClonesManager.Instance.Count();
         Vector3 forwardMove = transform.forward * speed * verticalMultiplier * speedMultiplier * Time.fixedDeltaTime;

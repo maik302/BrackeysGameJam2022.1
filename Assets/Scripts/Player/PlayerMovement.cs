@@ -8,27 +8,25 @@ public class PlayerMovement : BaseMovement {
 	[SerializeField] float _rayMagnitude;
 
 	public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
-		if (GameManager.Instance.GetCurrentGameState() == GameManager.GameState.PLAYING) {
-			// Movement to the right
-			if (horizontalMove.x > 0) {
-				if (CanKeepMovingInDirection(Vector3.right)) {
-					body.MovePosition(body.position + forwardMove + horizontalMove);
-				} else {
-					body.MovePosition(body.position + forwardMove);
-				}
-			}
-			// Movement to the left
-			else if (horizontalMove.x < 0) {
-				if (CanKeepMovingInDirection(Vector3.left)) {
-					body.MovePosition(body.position + forwardMove + horizontalMove);
-				} else {
-					body.MovePosition(body.position + forwardMove);
-				}
-			}
-			// Forward movement
-			else {
+		// Movement to the right
+		if (horizontalMove.x > 0) {
+			if (CanKeepMovingInDirection(Vector3.right)) {
 				body.MovePosition(body.position + forwardMove + horizontalMove);
+			} else {
+				body.MovePosition(body.position + forwardMove);
 			}
+		}
+		// Movement to the left
+		else if (horizontalMove.x < 0) {
+			if (CanKeepMovingInDirection(Vector3.left)) {
+				body.MovePosition(body.position + forwardMove + horizontalMove);
+			} else {
+				body.MovePosition(body.position + forwardMove);
+			}
+		}
+		// Forward movement
+		else {
+			body.MovePosition(body.position + forwardMove + horizontalMove);
 		}
     }
 

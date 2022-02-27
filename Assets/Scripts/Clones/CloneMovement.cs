@@ -11,12 +11,10 @@ public class CloneMovement : BaseMovement {
     }
 
     public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
-        if (GameManager.Instance.GetCurrentGameState() == GameManager.GameState.PLAYING) {
-            if (_canMoveHorizontally) {
-                body.MovePosition(body.position + forwardMove + horizontalMove);
-            } else {
-                body.MovePosition(body.position + forwardMove);
-            }
+        if (_canMoveHorizontally) {
+            body.MovePosition(body.position + forwardMove + horizontalMove);
+        } else {
+            body.MovePosition(body.position + forwardMove);
         }
     }
 
