@@ -21,14 +21,7 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         if (Instance == null) {
             Instance = this;
-        } else {
-            // If there already was an instance of this object, destroy it to make this the only one
-            Destroy(gameObject);
-            return;
         }
-
-        // Preserves this object instance when changing scenes
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start() {
@@ -41,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart() {
-        bestScore = Math.Max(ScoreManager.Instance.GetScore(), bestScore);
+        BestScoreManager.Instance.SaveBestScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -51,9 +44,5 @@ public class GameManager : MonoBehaviour
 
     public void SetGameState(GameState gameState) {
         _currentGameState = gameState;
-    }
-
-    public int GetBestScore() {
-        return bestScore;
     }
 }

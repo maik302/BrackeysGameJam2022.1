@@ -23,7 +23,7 @@ public class ScoreUI : MonoBehaviour
     {
         scoreText.text = ScoreManager.Instance.GetScore().ToString();
         finalScoreText.text = ScoreManager.Instance.GetScore().ToString();
-        bestScoreText.text = GameManager.Instance.GetBestScore().ToString();
+        bestScoreText.text = BestScoreManager.Instance.GetBestScore().ToString();
 
         float newPoints = ScoreManager.Instance.GetPoints();
         if (newPoints - lastPoints > 0) {
