@@ -8,6 +8,7 @@ TagManager:
   - Pickups
   - Cloner
   - PlayerClone
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - GroundWalls
+  - Clones
   - 
   - 
   - 

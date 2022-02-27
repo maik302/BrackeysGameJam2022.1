@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.8694763, y: 8.280197}
+  m_AnchoredPosition: {x: -2.6, y: 11.112}
   m_SizeDelta: {x: 137.8668, y: 42.1789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207212312
@@ -188,7 +188,7 @@ MonoBehaviour:
     m_MinSize: 0
     m_MaxSize: 113
     m_Alignment: 0
-    m_AlignByGeometry: 1
+    m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
@@ -293,7 +293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 4, y: -65, z: 0}
 --- !u!1 &462223312
 GameObject:
@@ -327,6 +327,7 @@ RectTransform:
   m_Children:
   - {fileID: 207212311}
   - {fileID: 1844952126}
+  - {fileID: 747241605}
   m_Father: {fileID: 904108685}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -425,7 +426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &462953452
 MonoBehaviour:
@@ -472,7 +473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundTilePrefab: {fileID: 6330493459007188842, guid: d8efd744798b84bc89011f2737e8956a, type: 3}
-  _cloneTilePrefab: {fileID: 6330493459007188842, guid: 310383f3590554a4380d4ed69eeb6dfe, type: 3}
+  _minGroundTiles: 5
+  _maxGroundTiles: 10
+  _cloningTilePrefab: {fileID: 6330493459007188842, guid: 310383f3590554a4380d4ed69eeb6dfe, type: 3}
 --- !u!4 &614559362
 Transform:
   m_ObjectHideFlags: 0
@@ -528,8 +531,87 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &747241604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747241605}
+  - component: {fileID: 747241607}
+  - component: {fileID: 747241606}
+  m_Layer: 5
+  m_Name: PickUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &747241605
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747241604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 462223313}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.4, y: 14.036}
+  m_SizeDelta: {x: 42.1355, y: 36.3304}
+  m_Pivot: {x: 0.50000036, y: 0.49999997}
+--- !u!114 &747241606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747241604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7360761, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 88d5f2d0a24e44a8394d8b6aa58d0ee9, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 113
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 25
+--- !u!222 &747241607
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747241604}
+  m_CullTransparentMesh: 1
 --- !u!1 &904108681
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &910511815
 MonoBehaviour:
@@ -787,7 +869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594499949
 GameObject:
@@ -919,7 +1001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.8, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1594499955
 MonoBehaviour:
@@ -937,7 +1019,7 @@ MonoBehaviour:
   moveVal: {x: 0, y: 0, z: 0}
   speed: 12
   horizontalMultiplier: 1
-  bulletPrefab: {fileID: 1153982264363845676, guid: 40a00256dba9ce04e8e31123c3d172cd, type: 3}
+  _rayMagnitude: 1
 --- !u!65 &1594499956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -996,7 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1594499954}
   distanceMultiplier: 0.2
-  pointsMultiplier: 2
+  pointsMultiplier: 5
   timePenaltyRoot: 1.85
   timeDistanceDivider: 10
 --- !u!4 &1810107200
@@ -1026,6 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1844952127}
+  pointsText: {fileID: 747241606}
 --- !u!1 &1844952125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,8 +1143,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.1, y: -15.2}
-  m_SizeDelta: {x: 137.8668, y: 42.1789}
+  m_AnchoredPosition: {x: -17.9702, y: -15.2}
+  m_SizeDelta: {x: 93.7265, y: 42.1789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844952127
 MonoBehaviour:
@@ -1090,13 +1173,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 113
-    m_Alignment: 0
-    m_AlignByGeometry: 1
+    m_Alignment: 3
+    m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 100
 --- !u!222 &1844952128
 CanvasRenderer:
   m_ObjectHideFlags: 0

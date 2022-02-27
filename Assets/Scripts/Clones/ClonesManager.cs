@@ -50,4 +50,10 @@ public class ClonesManager : MonoBehaviour {
         clones.Remove(clone);
         Destroy(clone);
     }
+
+    public void SetClonesHorizontalMovementState(bool canMoveHorizontally) {
+        foreach (GameObject clone in clones) {
+            clone.GetComponent<CloneMovement>()?.SetCanMoveHorizontally(canMoveHorizontally);
+        }
+    }
 }

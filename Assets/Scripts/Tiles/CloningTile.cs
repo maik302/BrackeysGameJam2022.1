@@ -35,6 +35,7 @@ public class CloningTile : BaseTile {
     public void RequestForCloneCreation() {
         var nextAvailableCloningPosition = GetNextAvailableCloningPosition();
         if (nextAvailableCloningPosition != null) {
+            AudioManager.Instance.Play("CloneSound");
             ClonesManager.Instance.CreateClone((Vector3) nextAvailableCloningPosition);
         }
     }

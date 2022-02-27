@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     private float secondsPassed;
 
     [SerializeField] private float distanceMultiplier = 0.2f;
-    [SerializeField] private float pointsMultiplier = 2f;
+    [SerializeField] private float pointsMultiplier = 5f;
     [SerializeField] private float timePenaltyRoot = 1.85f;
     [SerializeField] private float timeDistanceDivider = 10f;
 
@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour
         return playerTransform.position.z * distanceMultiplier;
     }
 
-    float GetPoints() {
+    public float GetPoints() {
         return points * pointsMultiplier;
     }
 

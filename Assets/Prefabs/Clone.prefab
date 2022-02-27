@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5044755005652440677}
   - component: {fileID: 5044755005652440676}
   - component: {fileID: 5044755005652440679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CubePlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 5044755007332036519}
   - component: {fileID: 5044755007332036518}
   - component: {fileID: 5044755007332036517}
-  - component: {fileID: 5044755007332036516}
+  - component: {fileID: 1123005820266572574}
   - component: {fileID: 1948213884834701086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clone
   m_TagString: PlayerClone
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!114 &5044755007332036517
 MonoBehaviour:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5044755007332036516
+--- !u!114 &1123005820266572574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,14 +199,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5044755007332036520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e9d45b20422460a87ee1ded8d4dd9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2046ff0d61945d94a88de03c67c59c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 5044755007332036518}
   moveVal: {x: 0, y: 0, z: 0}
   speed: 12
   horizontalMultiplier: 1
-  bulletPrefab: {fileID: 1153982264363845676, guid: 40a00256dba9ce04e8e31123c3d172cd, type: 3}
 --- !u!114 &1948213884834701086
 MonoBehaviour:
   m_ObjectHideFlags: 0
