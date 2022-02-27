@@ -1066,7 +1066,7 @@ GameObject:
   - component: {fileID: 1044222566}
   - component: {fileID: 1044222565}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: LowResRenderImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
