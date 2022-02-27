@@ -7,7 +7,11 @@ public class PlayerMovement : BaseMovement {
 
 	[SerializeField] float _rayMagnitude;
 
-	public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
+    private void Start() {
+		AudioManager.Instance.Play("CarEngineSound");
+    }
+
+    public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
 		// Movement to the right
 		if (horizontalMove.x > 0) {
 			if (CanKeepMovingInDirection(Vector3.right)) {
