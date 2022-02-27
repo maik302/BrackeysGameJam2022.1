@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private int bestScore = 0;
-    [SerializeField] private int score;
 
     private void Awake() {
         if (Instance == null) {
@@ -32,13 +31,8 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.Play("BackgroundMusic");
     }
 
-    public void AddPoints(int points) {
-        score += points;
-    }
-
     public void Restart() {
-        bestScore = Math.Max(score, bestScore);
-        score = 0;
+        bestScore = Math.Max(ScoreManager.Instance.GetScore(), bestScore);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
