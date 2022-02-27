@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
 
     private int bestScore = 0;
 
+    public enum GameState {
+        PLAYING,
+        PAUSE,
+        GAME_OVER
+    };
+
+    GameState _currentGameState;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -24,6 +32,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
+        _currentGameState = GameState.PLAYING;
         StartPlayingBackgroungMusic();
     }
 
@@ -34,5 +43,13 @@ public class GameManager : MonoBehaviour
     public void Restart() {
         bestScore = Math.Max(ScoreManager.Instance.GetScore(), bestScore);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public GameState GetCurrentGameState() {
+        return _currentGameState;
+    }
+
+    public void SetGameState(GameState gameState) {
+        _currentGameState = gameState;
     }
 }
