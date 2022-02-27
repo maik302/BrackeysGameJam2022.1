@@ -660,8 +660,7 @@ MonoBehaviour:
   moveVal: {x: 0, y: 0, z: 0}
   speed: 12
   horizontalMultiplier: 1
-  _rayMagnitude: 10
-  bulletPrefab: {fileID: 1153982264363845676, guid: 40a00256dba9ce04e8e31123c3d172cd, type: 3}
+  _rayMagnitude: 1
 --- !u!65 &1594499956
 BoxCollider:
   m_ObjectHideFlags: 0
