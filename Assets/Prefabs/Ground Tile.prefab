@@ -141,10 +141,8 @@ MonoBehaviour:
   _tracks: 3
   obstacles:
     _objectsToSpawn:
-    - {fileID: 100000, guid: 491af40ffa3f3dd47b8f5f5ddc473bf5, type: 3}
-    - {fileID: 100000, guid: 51cf289f761cc8e4eab7fd75ddb0e9a0, type: 3}
-    - {fileID: 100000, guid: c1091071aa8b35b43bf14b33bc7f5be6, type: 3}
-    - {fileID: 100000, guid: aff966e5025eb394f9474186cecbb30d, type: 3}
+    - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
+    - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
     _chanceOfSpawn: 0.4000000059604645
     _maxSpawnableObjects: 1
   coins:
@@ -285,10 +283,8 @@ MonoBehaviour:
   _tracks: 3
   obstacles:
     _objectsToSpawn:
-    - {fileID: 100000, guid: 491af40ffa3f3dd47b8f5f5ddc473bf5, type: 3}
-    - {fileID: 100000, guid: 51cf289f761cc8e4eab7fd75ddb0e9a0, type: 3}
-    - {fileID: 100000, guid: c1091071aa8b35b43bf14b33bc7f5be6, type: 3}
-    - {fileID: 100000, guid: aff966e5025eb394f9474186cecbb30d, type: 3}
+    - {fileID: 1050719810029825310, guid: 3452a82bf16c84b4ba68c0b7fd8dcd19, type: 3}
+    - {fileID: 778779861149325163, guid: 2d3d1967f1cc8e5499c590c97d27cb91, type: 3}
     _chanceOfSpawn: 0.4000000059604645
     _maxSpawnableObjects: 1
   coins:
