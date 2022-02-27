@@ -1,28 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CloneMovement : BaseMovement {
+public class CloneMovement : MonoBehaviour {
     [SerializeField] Rigidbody body;
 
-    bool _canMoveHorizontally;
+    PlayerMovement player;
+    Vector3 distance;
 
-    void Awake() {
-        _canMoveHorizontally = true;
+    void Start() {
+        player = FindObjectOfType<PlayerMovement>();
+        distance = transform.position - player.transform.position;
     }
 
-    public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
-        if (_canMoveHorizontally) {
-            body.MovePosition(body.position + forwardMove + horizontalMove);
-        } else {
-            body.MovePosition(body.position + forwardMove);
-        }
-    }
-
-    void OnMove(InputValue value) {
-        moveVal = value.Get<Vector2>().normalized;
-    }
-
-    public void SetCanMoveHorizontally(bool canMoveHorizontally) {
-        _canMoveHorizontally = canMoveHorizontally;
+    void FixedUpdate()
+    {
+        Vector3 move = distance - (transform.position - player.transform.position);
+        Debug.Log($"{distance} - ({transform.position} - {player.transform.position} = {transform.position - player.transform.position}) = {move}");
+        body.MovePosition(body.position + move);
     }
 }

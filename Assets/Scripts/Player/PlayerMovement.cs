@@ -38,9 +38,6 @@ public class PlayerMovement : BaseMovement {
 		// Casts a ray from this transform origin to know if the object is near a *border wall*
 		Ray ray = new Ray(transform.position, direction);
 		var canKeepMovingInDirection = !Physics.Raycast(ray, _rayMagnitude);
-
-		//Reports to every clone if they can keep moving horizontally
-		ClonesManager.Instance.SetClonesHorizontalMovementState(canKeepMovingInDirection);
 		return !Physics.Raycast(ray, _rayMagnitude);
     }
 
