@@ -8,6 +8,7 @@ public class ScoreUI : MonoBehaviour
 
     [SerializeField] private Text scoreText;
     [SerializeField] private Text pointsText;
+    [SerializeField] private Text speedMultiplierText;
 
     private float lastPoints = 0;
     private float addedPoints = 0;
@@ -29,6 +30,8 @@ public class ScoreUI : MonoBehaviour
         } else {
             pointsText.text = addedPoints.ToString();
         }
+
+        speedMultiplierText.text = (ClonesManager.Instance.Count() + 1).ToString();
     }
 
     public void AddPointsText(float points) {

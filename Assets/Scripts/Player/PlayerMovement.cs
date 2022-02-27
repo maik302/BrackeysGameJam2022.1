@@ -1,22 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : BaseMovement {
 	[SerializeField] Rigidbody body;
-	
-	[SerializeField] Vector3 moveVal;
-	[SerializeField] float speed = 30;
-	[SerializeField] float horizontalMultiplier = 1;
+
 	[SerializeField] float _rayMagnitude;
 
-    void FixedUpdate() {
-		float vertialMultiplier = moveVal.y < 0 ? 0 : moveVal.y;
-		Vector3 forwardMove = transform.forward * (1 + vertialMultiplier*2) * speed * Time.fixedDeltaTime;
-		Vector3 horizontalMove = transform.right * moveVal.x * speed * Time.fixedDeltaTime * horizontalMultiplier;
-		MoveWithRestrictions(forwardMove, horizontalMove);
-    }
-
-	void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
+	public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
 		// Movement to the right
 		if (horizontalMove.x > 0) {
 			if (CanKeepMovingInDirection(Vector3.right)) {

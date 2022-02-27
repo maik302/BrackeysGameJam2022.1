@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
         {
             secondsPassed += Time.fixedDeltaTime;
         }
-        Debug.Log(GetDistance() + " + " + GetPoints() + " - " + GetTimePenalty() + " = " + GetScore());
+        // Debug.Log(GetDistance() + " + " + GetPoints() + " - " + GetTimePenalty() + " = " + GetScore());
     }
 
     public void AddPoints(int pointsToAdd) {
