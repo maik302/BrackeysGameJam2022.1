@@ -2,16 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseTile : MonoBehaviour {
+public class BaseTileSpawner : MonoBehaviour {
 
     [SerializeField] protected int _tracks = 5;
-
-    void OnCollisionExit(Collision other) {
-        if (other.gameObject.CompareTag("Player")) {
-            GroundSpawner.Instance.SpawnTile();
-            Destroy(gameObject, 2);
-        }
-    }
 
     protected GameObject SpawnGameObject(GameObject objectPrefab, int track, int numberOfTracks) {
         // Spawn the object
@@ -21,9 +14,9 @@ public class BaseTile : MonoBehaviour {
 
         // HACK: Fix scale of object to make it 1x1x1 again
         Vector3 objectScale = gameObject.transform.localScale;
-        objectScale.x /= transform.localScale.x;
-        objectScale.y /= transform.localScale.y;
-        objectScale.z /= transform.localScale.z;
+        objectScale.x /= transform.parent.localScale.x;
+        objectScale.y /= transform.parent.localScale.y;
+        objectScale.z /= transform.parent.localScale.z;
         gameObject.transform.localScale = objectScale;
 
         return gameObject;

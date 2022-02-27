@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CloningTile : BaseTile {
+public class CloningTileSpawner : BaseTileSpawner {
     // Cloning devices
     [Header("Cloning Arc setup")]
     [SerializeField] SpawnableObjects cloningArc;
@@ -21,7 +21,7 @@ public class CloningTile : BaseTile {
         for (int track = 0; track < _tracks; track++) {
             GameObject cloner = SpawnGameObject(cloningArc.GetObjectToSpawn(), track, _tracks);
             cloner.GetComponent<ClonningDoor>()?.SetCloningStatus(track == activeClonerTrack);
-            cloner.GetComponent<ClonningDoor>()?.SetClonerWorldPosition(GetSpawnPosition(track, _tracks), gameObject.transform);
+            cloner.GetComponent<ClonningDoor>()?.SetClonerWorldPosition(GetSpawnPosition(track, _tracks), transform.parent);
             _cloners[track] = cloner;
         }
     }

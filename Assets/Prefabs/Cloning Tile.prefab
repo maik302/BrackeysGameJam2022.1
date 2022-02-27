@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3425124671790464846}
   - component: {fileID: 6194436083512048554}
   - component: {fileID: 691599617586414850}
+  - component: {fileID: 915373597083821967}
   m_Layer: 0
   m_Name: RightPlane
   m_TagString: Untagged
@@ -25,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158855231494713576}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2267942292513515192}
-  m_RootOrder: 1
+  m_Father: {fileID: 2528320861588956070}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6194436083512048554
 MeshFilter:
@@ -81,6 +82,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &915373597083821967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158855231494713576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tracks: 3
+  obstacles:
+    _objectsToSpawn:
+    - {fileID: 100000, guid: 491af40ffa3f3dd47b8f5f5ddc473bf5, type: 3}
+    - {fileID: 100000, guid: 51cf289f761cc8e4eab7fd75ddb0e9a0, type: 3}
+    - {fileID: 100000, guid: c1091071aa8b35b43bf14b33bc7f5be6, type: 3}
+    - {fileID: 100000, guid: aff966e5025eb394f9474186cecbb30d, type: 3}
+    _chanceOfSpawn: 0.4000000059604645
+    _maxSpawnableObjects: 1
+  coins:
+    _objectsToSpawn:
+    - {fileID: 100000, guid: 4ca0318c4a50b3849a6d1ff3c69009da, type: 3}
+    - {fileID: 100000, guid: 310ca53bdf0d8be47ba991c016cc12dc, type: 3}
+    - {fileID: 100000, guid: 7545667c336c236488f9c85271120db9, type: 3}
+    - {fileID: 100000, guid: 13db1d4df6986d047a29eb9a35fb321e, type: 3}
+    - {fileID: 100000, guid: 924b0146480cdf94491776d3411b1dda, type: 3}
+    - {fileID: 100000, guid: a66b4d595441d244387e1e12f82d7e7e, type: 3}
+    - {fileID: 100000, guid: 2a54b0efd5ad7c14abbb83677f8b33db, type: 3}
+    _chanceOfSpawn: 0.10000000149011612
+    _maxSpawnableObjects: 1
 --- !u!1 &1745874309462179666
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2528320861588956070}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2370538606711623132
 GameObject:
@@ -166,6 +199,8 @@ GameObject:
   - component: {fileID: 6322248100535471036}
   - component: {fileID: 6458211609614848729}
   - component: {fileID: 6196733735548410472}
+  - component: {fileID: 8805597319105187200}
+  - component: {fileID: 3784724032094581447}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -185,7 +220,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2528320861588956070}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6458211609614848729
 MeshFilter:
@@ -236,6 +271,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8805597319105187200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769369803029695363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b69f8e8168e6f342a01108d87899ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tracks: 5
+  cloningArc:
+    _objectsToSpawn:
+    - {fileID: 6013620785457811994, guid: 8fd1d66522debb143b3db01120afd0fe, type: 3}
+    _chanceOfSpawn: 0
+    _maxSpawnableObjects: 0
+--- !u!65 &3784724032094581447
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769369803029695363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 5, z: 1}
+  m_Center: {x: 0, y: 2.5, z: 5}
 --- !u!1 &3898914972679925950
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +313,7 @@ GameObject:
   - component: {fileID: 6697666954754257008}
   - component: {fileID: 7411681331857065090}
   - component: {fileID: 5053557397947143017}
+  - component: {fileID: 383246819898974886}
   m_Layer: 0
   m_Name: LeftPlane
   m_TagString: Untagged
@@ -261,12 +328,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3898914972679925950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2267942292513515192}
-  m_RootOrder: 0
+  m_Father: {fileID: 2528320861588956070}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7411681331857065090
 MeshFilter:
@@ -317,38 +384,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4781989359741143807
-GameObject:
+--- !u!114 &383246819898974886
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2267942292513515192}
-  m_Layer: 0
-  m_Name: Props
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2267942292513515192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4781989359741143807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6697666954754257008}
-  - {fileID: 3425124671790464846}
-  m_Father: {fileID: 2528320861588956070}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 3898914972679925950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdf5f912365e47fe8237aa792153a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tracks: 3
+  obstacles:
+    _objectsToSpawn:
+    - {fileID: 100000, guid: 491af40ffa3f3dd47b8f5f5ddc473bf5, type: 3}
+    - {fileID: 100000, guid: 51cf289f761cc8e4eab7fd75ddb0e9a0, type: 3}
+    - {fileID: 100000, guid: c1091071aa8b35b43bf14b33bc7f5be6, type: 3}
+    - {fileID: 100000, guid: aff966e5025eb394f9474186cecbb30d, type: 3}
+    _chanceOfSpawn: 0.4000000059604645
+    _maxSpawnableObjects: 1
+  coins:
+    _objectsToSpawn:
+    - {fileID: 100000, guid: 4ca0318c4a50b3849a6d1ff3c69009da, type: 3}
+    - {fileID: 100000, guid: 310ca53bdf0d8be47ba991c016cc12dc, type: 3}
+    - {fileID: 100000, guid: 7545667c336c236488f9c85271120db9, type: 3}
+    - {fileID: 100000, guid: 13db1d4df6986d047a29eb9a35fb321e, type: 3}
+    - {fileID: 100000, guid: 924b0146480cdf94491776d3411b1dda, type: 3}
+    - {fileID: 100000, guid: a66b4d595441d244387e1e12f82d7e7e, type: 3}
+    - {fileID: 100000, guid: 2a54b0efd5ad7c14abbb83677f8b33db, type: 3}
+    _chanceOfSpawn: 0.10000000149011612
+    _maxSpawnableObjects: 1
 --- !u!1 &6330493459007188842
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,8 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2528320861588956070}
   - component: {fileID: 8021498895118702861}
-  - component: {fileID: 8344124269944158761}
-  - component: {fileID: 4649376608701995449}
+  - component: {fileID: 5073991639638712801}
   m_Layer: 0
   m_Name: Cloning Tile
   m_TagString: Untagged
@@ -380,9 +446,10 @@ Transform:
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children:
   - {fileID: 7581366435057478538}
-  - {fileID: 6322248100535471036}
   - {fileID: 2362954236386776692}
-  - {fileID: 2267942292513515192}
+  - {fileID: 6322248100535471036}
+  - {fileID: 6697666954754257008}
+  - {fileID: 3425124671790464846}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -399,20 +466,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.01, z: 10}
   m_Center: {x: 0, y: 0, z: 5}
---- !u!65 &8344124269944158761
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330493459007188842}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 5, z: 1}
-  m_Center: {x: 0, y: 2.5, z: 5}
---- !u!114 &4649376608701995449
+--- !u!114 &5073991639638712801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,15 +475,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6330493459007188842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b69f8e8168e6f342a01108d87899ecc, type: 3}
+  m_Script: {fileID: 11500000, guid: fecf4f8c0818e44e2b195ca14779b235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tracks: 5
-  cloningArc:
-    _objectsToSpawn:
-    - {fileID: 6013620785457811994, guid: 8fd1d66522debb143b3db01120afd0fe, type: 3}
-    _chanceOfSpawn: 0
-    _maxSpawnableObjects: 0
 --- !u!1 &6723846237739454509
 GameObject:
   m_ObjectHideFlags: 0
