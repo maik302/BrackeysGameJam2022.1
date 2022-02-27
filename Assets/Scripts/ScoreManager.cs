@@ -29,6 +29,10 @@ public class ScoreManager : MonoBehaviour
         secondsPassed = 0;
     }
 
+    void Update() {
+        timerIsRunning = GameManager.Instance.GetCurrentGameState() == GameManager.GameState.PLAYING;
+    }
+
     void FixedUpdate()
     {
         if (timerIsRunning)

@@ -8,25 +8,27 @@ public class PlayerMovement : BaseMovement {
 	[SerializeField] float _rayMagnitude;
 
 	public override void MoveWithRestrictions(Vector3 forwardMove, Vector3 horizontalMove) {
-		// Movement to the right
-		if (horizontalMove.x > 0) {
-			if (CanKeepMovingInDirection(Vector3.right)) {
-				body.MovePosition(body.position + forwardMove + horizontalMove);
-			} else {
-				body.MovePosition(body.position + forwardMove);
+		if (GameManager.Instance.GetCurrentGameState() == GameManager.GameState.PLAYING) {
+			// Movement to the right
+			if (horizontalMove.x > 0) {
+				if (CanKeepMovingInDirection(Vector3.right)) {
+					body.MovePosition(body.position + forwardMove + horizontalMove);
+				} else {
+					body.MovePosition(body.position + forwardMove);
+				}
 			}
-		}
-		// Movement to the left
-		else if (horizontalMove.x < 0) {
-			if (CanKeepMovingInDirection(Vector3.left)) {
-				body.MovePosition(body.position + forwardMove + horizontalMove);
-			} else {
-				body.MovePosition(body.position + forwardMove);
+			// Movement to the left
+			else if (horizontalMove.x < 0) {
+				if (CanKeepMovingInDirection(Vector3.left)) {
+					body.MovePosition(body.position + forwardMove + horizontalMove);
+				} else {
+					body.MovePosition(body.position + forwardMove);
+				}
 			}
-		}
-		// Forward movement
-		else {
-			body.MovePosition(body.position + forwardMove + horizontalMove);
+			// Forward movement
+			else {
+				body.MovePosition(body.position + forwardMove + horizontalMove);
+			}
 		}
     }
 
@@ -42,5 +44,13 @@ public class PlayerMovement : BaseMovement {
 
 	void OnMove(InputValue value) {
 		moveVal = value.Get<Vector2>().normalized;
+	}
+
+	void OnFire(InputValue value) {
+		if (GameManager.Instance.GetCurrentGameState() == GameManager.GameState.PAUSE) {
+			GameManager.Instance.SetGameState(GameManager.GameState.PLAYING);
+		} else if (GameManager.Instance.GetCurrentGameState() == GameManager.GameState.PLAYING) {
+			GameManager.Instance.SetGameState(GameManager.GameState.PAUSE);
+		}
 	}
 }
