@@ -15,6 +15,7 @@ public class PlayerHealth : BaseHealth
 
     public override void Die()
     {
+        AudioManager.Instance.Stop("CarEngineSound");
         Invoke("GameOver", 0.5f);
     }
 
