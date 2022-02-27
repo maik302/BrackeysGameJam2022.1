@@ -5,6 +5,8 @@ using UnityEngine;
 public class GroundSpawner : MonoBehaviour {
     public static GroundSpawner Instance;
 
+	[SerializeField] private int _initialTiles = 10;
+
 	[Header("Ground tiles")]
 	[SerializeField] private GameObject _groundTilePrefab;
 	[SerializeField] private int _minGroundTiles;
@@ -54,7 +56,7 @@ public class GroundSpawner : MonoBehaviour {
 	}
 
 	void Start() {
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < _initialTiles; i++)
 		{
 			SpawnTile();
 		}
